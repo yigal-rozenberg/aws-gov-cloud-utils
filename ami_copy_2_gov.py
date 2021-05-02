@@ -136,11 +136,11 @@ def main(argv):
   try:
     opts, args = getopt.getopt(argv,"hi:n:",["ami=","name="])
   except getopt.GetoptError:
-    print 'ami_copy_2_gov.py -i <AMI ID> -o <AMI Name>'
+    print('ami_copy_2_gov.py -i <AMI ID> -o <AMI Name>')
     sys.exit(2)
     for opt, arg in opts:
       if opt == '-h':
-        print 'ami_copy_2_gov.py -i <AMI ID> -o <AMI Name>'
+        print('ami_copy_2_gov.py -i <AMI ID> -o <AMI Name>')
         sys.exit()
       elif opt in ("-i", "--ami"):
         sourceImageId = arg

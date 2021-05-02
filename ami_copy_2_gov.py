@@ -133,19 +133,25 @@ def aws_restore_ami_from_s3(
 def main(argv):
   sourceImageId = ''
   sourceImageName = ''
+  opts = []
+  args = []
   try:
     opts, args = getopt.getopt(argv,"hi:n:",["ami=","name="])
   except getopt.GetoptError:
-    print('ami_copy_2_gov.py -i <AMI ID> -o <AMI Name>')
+    print('ami_copy_2_gov.py -i <AMI ID> -n <AMI Name>')
     sys.exit(2)
-    for opt, arg in opts:
-      if opt == '-h':
-        print('ami_copy_2_gov.py -i <AMI ID> -o <AMI Name>')
-        sys.exit()
-      elif opt in ("-i", "--ami"):
-        sourceImageId = arg
-      elif opt in ("-n", "--name"):
-        sourceImageName = arg
+  if not opts:
+    print('ami_copy_2_gov.py -i <AMI ID> -n <AMI Name>')
+    sys.exit() 
+    
+  for opt, arg in opts:
+    if opt == '-h':
+      print('ami_copy_2_gov.py -i <AMI ID> -n <AMI Name>')
+      sys.exit()
+    elif opt in ("-i", "--ami"):
+      sourceImageId = arg
+    elif opt in ("-n", "--name"):
+      sourceImageName = arg
   
   print('Copy AWS AMI from Commercial cloud to government cloud:')
   print('Source AMI ID: ' + sourceImageId)

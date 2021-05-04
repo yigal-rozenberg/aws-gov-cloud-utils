@@ -5,7 +5,7 @@ The implmentation is based on a new aws api functionality that allows storing AM
 
 The source AMI is serialize to a S3 blob by calling the boto3 create_store_image_task() function.
 The blob then transfered from commercial cloud to goverement cloud using buffered download and upload instead of downloading and uploading the whle blob to the machine where the script is executed.
-Once the blbo replicated to a goverment cloud S3 bucket, it is restored by calling boto3 create_restore_image_task() function.
+Once the blob replicated to a goverment cloud S3 bucket, it is restored by calling boto3 create_restore_image_task() function.
 
 The describe_store_image_tasks() function is used to check completion of the export task.
 There is no equivalent API for restore image tasks.

@@ -130,9 +130,11 @@ def aws_restore_ami_from_s3(
 
   return imageId
 
-def main(argv):
+def main():
   sourceImageId = ''
   sourceImageName = ''
+  argv = sys.argv[1:]
+  
   opts = []
   args = []
   try:
